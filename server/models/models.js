@@ -41,3 +41,32 @@ const DeviceInfo = sequelize.define('device_info', {
     description: {type: DataTypes.STRING, allowNull: false}
 
 })
+
+
+
+Device.hasOne(Basket)
+Basket.belongsTo(User)
+
+User.hasMany(Rating)
+Rating.belongsTo(User)
+
+Basket.hasMany(BasketDevice)
+BasketDevice.belongsTo(Basket)
+
+Type.hasMany(Device)
+Device.belongsTo(Type)
+Brand.hasMany(Device)
+Device.belongsTo(Brand)
+
+Device.hasMany(Rating)
+Rating.belongsTo(Device)
+
+
+Device.hasMany(BasketDevice)
+BasketDevice.belongsTo(Device)
+
+Device.hasMany(DeviceInfo)
+DeviceInfo.belongsTo(Device)
+
+Type.belongsToMany(Brand, {through: })
+Brand.belongsToMany(Type, {through: })

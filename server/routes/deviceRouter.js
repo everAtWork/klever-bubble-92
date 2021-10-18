@@ -1,9 +1,9 @@
 import Router from 'express';
-import { Model } from 'sequelize/types';
+const deviceController = require('../controllers/deviceController')
 const router = new Router()
 
-router.post('/',)
-router.get('/',)
-router.get('/:id',)
+router.post('/',deviceController.create)
+router.get('/',deviceController.getAll)
+router.get('/:id',deviceController.getSingleDevice)
 
 module.exports = router

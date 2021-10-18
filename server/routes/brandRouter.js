@@ -1,8 +1,8 @@
 import Router from 'express';
-import { Model } from 'sequelize/types';
 const router = new Router()
+const brandController = require('../controllers/brandController')
 
-router.post('/',)
-router.set('/',)
+router.post('/',brandController.create)
+router.set('/',brandController.getAll)
 
 module.exports = router

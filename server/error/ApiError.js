@@ -15,3 +15,5 @@ class ApiError{
         return new ApiError(403, msg)
     }
 }
+
+export default ApiError;

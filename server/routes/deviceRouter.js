@@ -1,9 +1,9 @@
 import Router from 'express';
-const deviceController = require('../controllers/deviceController')
+const productController = require('../controllers/productController')
 const router = new Router()
 
-router.post('/',deviceController.create)
-router.get('/',deviceController.getAll)
-router.get('/:id',deviceController.getSingleDevice)
+router.post('/',productController.create)
+router.get('/',productController.getAll)
+router.get('/:id',productController.getSingleProduct)
 
 module.exports = router

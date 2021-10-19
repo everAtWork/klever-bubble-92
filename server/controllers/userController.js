@@ -42,11 +42,8 @@ class UserController {
         return res.json({token})
     }
     async chq(req,res, next) {
-        const {id} = req.query
-        if(!id){
-            next(ApiError.badReq("id's not been assignd"))
-        }
-        res.json(id)
+     const token = generateJwt(req.user.id, req.user.email, req.user.role, )
+        res.json({token})
     }
 }
 

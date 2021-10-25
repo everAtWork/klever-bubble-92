@@ -9,20 +9,16 @@ const AppRouter = () => {
 }
 export default function AppRouter() {
     const isAuth = false
-    return (
-    <Switch>
-        {user.isAuth && 
-            authRoutes.map(({path, Component}) =>{
-                <Route key={path} path={path} component={Component} exact></Route>
-            })
-        }
-        {
-            publicRoutes.map(({path, Component}) =>{
-                <Route key={path} path={path} component={Component} exact></Route>
-            })
-        }
-        <Redirect to={SHOP_ROUTE}/>
-    </Switch>
-        )
+    return ( 
+        <Switch>
+            { isAuth && authRoutes.map(({path, Component}) =>
+            <Route path={path} component={Component}></Route>
+            )}
+            {publicRoutes.map(({path, Component}) =>
+            <Route path={path} component={Component}></Route>
+            )}
+            <Redirect to={SHOP_ROUTE}></Redirect>
+        </Switch>
+    )
 }
- 
+

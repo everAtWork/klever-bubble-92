@@ -1,9 +1,11 @@
 import { ADMIN_ROUTE, BASKET_ROUTE, SHOP_ROUTE, LOGIN_ROUTE, PRODUCT_ROUTE } from "./utils/constantae"
+import AdminP from "./pages/AdminPanel"
+import Auth from "./pages/Auth"
 
 export const authRoutes = [
     {
         path: ADMIN_ROUTE,
-        Component: Admin
+        Component: AdminP
     },
     {
         path: BASKET_ROUTE,
@@ -13,7 +15,7 @@ export const authRoutes = [
 export const publicRoutes = [
     {
         path: SHOP_ROUTE,
-        Component: Admin
+        Component: AdminP
     },
     {
         path: LOGIN_ROUTE,

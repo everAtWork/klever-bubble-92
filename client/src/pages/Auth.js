@@ -3,17 +3,24 @@ import {Container, Card, Form, Button, Row} from 'react-bootstrap'
 import { NavLink, useHistory} from 'react-router-dom'
 import { REGISTRATION_ROUTE, LOGIN_ROUTE } from '../utils/constantae'
 import { useState } from 'react'
+import { observer } from 'mobx-react-lite'
+import { useContext } from 'react'
+import { Context } from '..'
 
-export default function Auth() {
+const Auth = observer(() {
+    const {usah} = useContext(Context)
     const curLoc = useHistory()
     const isLogin = curLoc.pathname === LOGIN_ROUTE
 
         const clickageAuth = async () => {
+            let usah
                 if (isLogin) {
-                    const responze = await login()
+                    data = await login(eml, pasw)
                 } else {
-                    const responze = await registration(eml, pasw)
+                    data = await registration(eml, pasw)
                 }
+                usah.setUser(usah)
+                usah.setIsAuth(true)
 
         }
 
@@ -41,4 +48,5 @@ export default function Auth() {
 
         </Container>
     )
-}
+})
+export default Auth

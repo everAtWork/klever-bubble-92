@@ -1,14 +1,12 @@
-import React from 'react'
-import {Container, Card, Form, Button, Row} from 'react-bootstrap'
+import React, {  useState , useContext } from 'react'
 import { NavLink, useHistory} from 'react-router-dom'
 import { REGISTRATION_ROUTE, LOGIN_ROUTE } from '../utils/constantae'
-import { useState } from 'react'
 import { observer } from 'mobx-react-lite'
-import { useContext } from 'react'
 import { Context } from '..'
+import {Container, Card, Form, Button, Row} from 'react-bootstrap'
 
-const Auth = observer(() {
-    const {usah} = useContext(Context)
+const Auth = observer(() => {
+    const {user} = useContext(Context)
     const curLoc = useHistory()
     const isLogin = curLoc.pathname === LOGIN_ROUTE
 

@@ -1,14 +1,15 @@
 import React, {  useState , useContext } from 'react'
-import { NavLink, useHistory} from 'react-router-dom'
-import { REGISTRATION_ROUTE, LOGIN_ROUTE } from '../utils/constantae'
+import { NavLink, useHistory, useLocation} from 'react-router-dom'
+import { REGISTRATION_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from '../utils/constantae'
+import { registration, login } from "../http/userAPI";
 import { observer } from 'mobx-react-lite'
 import { Context } from '..'
 import {Container, Card, Form, Button, Row} from 'react-bootstrap'
 
 const Auth = observer(() => {
     const {user} = useContext(Context)
-    const curLoc = useHistory()
-    const histAsOfAuth = useHistory()
+    const curLoc = useLocation()
+    const historyAtAuth = useHistory()
     const isLogin = curLoc.pathname === LOGIN_ROUTE
 
         const clickageAuth = async () => {
@@ -21,6 +22,7 @@ const Auth = observer(() => {
             }
             usah.setUser(usah)
             usah.setIsAuth(true)
+            historyAtAuth.push(SHOP_ROUTE)
           } catch (er) {
              alert(er.response.data.message) 
           }

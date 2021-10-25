@@ -8,17 +8,22 @@ import {Container, Card, Form, Button, Row} from 'react-bootstrap'
 const Auth = observer(() => {
     const {user} = useContext(Context)
     const curLoc = useHistory()
+    const histAsOfAuth = useHistory()
     const isLogin = curLoc.pathname === LOGIN_ROUTE
 
         const clickageAuth = async () => {
+          try {
             let usah
-                if (isLogin) {
-                    data = await login(eml, pasw)
-                } else {
-                    data = await registration(eml, pasw)
-                }
-                usah.setUser(usah)
-                usah.setIsAuth(true)
+            if (isLogin) {
+                data = await login(eml, pasw)
+            } else {
+                data = await registration(eml, pasw)
+            }
+            usah.setUser(usah)
+            usah.setIsAuth(true)
+          } catch (er) {
+             alert(er.response.data.message) 
+          }
 
         }
 

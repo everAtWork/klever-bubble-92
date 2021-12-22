@@ -21,7 +21,5 @@ return function(req,res,next){
         res.status(403).json({msg: 'Non authorized'})
     }
 }     
-} 
-
-
+}
 

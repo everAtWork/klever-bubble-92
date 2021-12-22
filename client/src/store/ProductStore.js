@@ -19,6 +19,9 @@ export default class ProductStore {
         this._selectedType = {}
         makeAutoObservable(this)
     }
+
+        
+
     setTypes(types){
         this._types = types
     }
